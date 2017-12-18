@@ -232,6 +232,7 @@ class Line(object):
         self.start = spntclone
         self.end = epntclone
 
+        self.clonecount = 0
 
     def __repr__(self):
         """
@@ -341,6 +342,7 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        self.clonecount = self.clonecount + 1
         return Line(self.start, self.end)
 
     def reverse(self):
@@ -408,7 +410,7 @@ class Line(object):
           :rtype: float
         """
         # --------------------------------------------------------------
-        # TODO: 6.
+        # DONE 6
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -419,10 +421,10 @@ class Line(object):
 
         dx = self.end.x - self.start.x
         dy = self.end.y - self.start.y
-        slope = dy/dx
         if dx == 0:
             return math.inf
         else:
+            slope = dy / dx
             return slope
 
     def length(self):
@@ -449,7 +451,7 @@ class Line(object):
           :rtype: float
         """
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE 7
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -457,6 +459,10 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        dx_squared = (self.start.x - self.end.x) ** 2
+        dy_squared = (self.start.y - self.end.y) ** 2
+
+        return math.sqrt(dx_squared + dy_squared)
 
     def get_number_of_clones(self):
         """
@@ -497,6 +503,7 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        return self.clonecount
 
     def line_plus(self, other_line):
         """
