@@ -114,10 +114,6 @@ class Baby(object):
                   .format(self.name))
         self.hour = self.hour + 1
 
-
-
-
-
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
 # imported by another module), then call the 'main' function.
